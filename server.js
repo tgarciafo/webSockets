@@ -30,6 +30,7 @@ io.on('connection', socket =>{
 
     socket.on('evento', (res) => {
         // Emet el missatge a tots els membres de les sales menys a la persona que envia el missatge  
+        console.log(res);
         socket.to(namePage).emit('evento', res);
     
       })
