@@ -28,10 +28,10 @@ io.on('connection', socket =>{
     console.log(`${chalk.green(`Nou dispositiu: ${idHandShake}`)} connectant a la ${namePage}`);
     socket.join(namePage)
 
-    socket.on('evento', (res) => {
+    socket.on('client', (res) => {
         // Emet el missatge a tots els membres de les sales menys a la persona que envia el missatge  
         console.log(res);
-        socket.to(namePage).emit('evento', res);
+        socket.to(namePage).emit('client', res);
     
       })
 
@@ -46,6 +46,20 @@ io.on('connection', socket =>{
       // Emet el missatge a tots els membres de les sales menys a la persona que envia el missatge  
       console.log(res);
       socket.to(namePage).emit('entrada', res);
+    
+    })
+
+    socket.on('sortida', (res) => {
+      // Emet el missatge a tots els membres de les sales menys a la persona que envia el missatge  
+      console.log(res);
+      socket.to(namePage).emit('sortida', res);
+    
+    })
+
+    socket.on('bloquejar', (res) => {
+      // Emet el missatge a tots els membres de les sales menys a la persona que envia el missatge  
+      console.log(res);
+      socket.to(namePage).emit('bloquejar', res);
     
     })
    
