@@ -41,6 +41,13 @@ io.on('connection', socket =>{
       socket.to(namePage).emit('producte', res);
     
     })
+
+    socket.on('entrada', (res) => {
+      // Emet el missatge a tots els membres de les sales menys a la persona que envia el missatge  
+      console.log(res);
+      socket.to(namePage).emit('entrada', res);
+    
+    })
    
     socket.on('disconnect', function () {
         console.log('user disconnected');
