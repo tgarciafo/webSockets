@@ -42,6 +42,13 @@ io.on('connection', socket =>{
     
     })
 
+    socket.on('location', (res) => {
+      // Emet el missatge a tots els membres de les sales menys a la persona que envia el missatge  
+      console.log(res);
+      socket.to(namePage).emit('location', res);
+    
+    })
+
     socket.on('entrada', (res) => {
       // Emet el missatge a tots els membres de les sales menys a la persona que envia el missatge  
       console.log(res);
